@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1086206454444177711}
   - component: {fileID: 2128314603395582312}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: R_ear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 948136622909213411}
   - component: {fileID: 8580706599458422751}
   m_Layer: 0
-  m_Name: Sphere (4)
+  m_Name: r_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,11 +244,11 @@ Transform:
   m_GameObject: {fileID: 1398879176226535475}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.50699997, y: 0.765, z: 0.143}
-  m_LocalScale: {x: 0.22723418, y: 0.11250544, z: 0.915481}
+  m_LocalPosition: {x: 0.5285919, y: 0.101290666, z: -0.06496984}
+  m_LocalScale: {x: 0.25454083, y: 0.12062772, z: 1.2702693}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &7341294673007281652
 MeshFilter:
@@ -354,11 +354,11 @@ Transform:
   m_GameObject: {fileID: 1427937696579280917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.219, y: -0.09500003, z: 0.083000004}
-  m_LocalScale: {x: 0.39406613, y: 0.45961285, z: 0.39883}
+  m_LocalPosition: {x: -0.24982134, y: -1.0919964, z: -0.13218002}
+  m_LocalScale: {x: 0.42251557, y: 0.6377326, z: 0.44675726}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7063946096542815760
 MeshFilter:
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 3612644773369158762}
   - component: {fileID: 2831450859531808878}
   m_Layer: 0
-  m_Name: Sphere (2)
+  m_Name: l_eal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 106721795475063864}
   - component: {fileID: 8318359525158962464}
   m_Layer: 0
-  m_Name: R (1)
+  m_Name: l_eyebrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 7795477134006861957}
   - component: {fileID: 5679465382492606124}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -797,11 +797,11 @@ Transform:
   m_GameObject: {fileID: 2989916147788211715}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.488, y: 0.765, z: 0.143}
-  m_LocalScale: {x: 0.22723418, y: 0.11250544, z: 0.915481}
+  m_LocalPosition: {x: -0.5382417, y: 0.101290666, z: -0.06496984}
+  m_LocalScale: {x: 0.25454083, y: 0.12062772, z: 1.2702693}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &8805179421276407731
 MeshFilter:
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 395828394459895742}
   - component: {fileID: 7841141896083355592}
   m_Layer: 0
-  m_Name: Sphere (6)
+  m_Name: r_bread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 8568915519785404937}
   - component: {fileID: 9100630794068932577}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1018,13 @@ Transform:
   m_LocalPosition: {x: 0.0139999995, y: 0.692, z: 0.201}
   m_LocalScale: {x: 0.93266654, y: 0.72069836, z: 0.892722}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3198939559817392883}
+  - {fileID: 2203461494252544064}
+  - {fileID: 2669194141510143649}
+  - {fileID: 2843690401327753439}
+  - {fileID: 7279964638808169895}
+  - {fileID: 8943786316395010769}
   m_Father: {fileID: 1914312944852136949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5434388014393063218
@@ -1110,7 +1116,7 @@ GameObject:
   - component: {fileID: 7972349953177369259}
   - component: {fileID: 4644197900691164119}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: l_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1233,11 +1239,11 @@ Transform:
   m_GameObject: {fileID: 4566028087328808946}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.229, y: -0.09500003, z: 0.083000004}
-  m_LocalScale: {x: 0.39406613, y: 0.45961285, z: 0.39883}
+  m_LocalPosition: {x: 0.23052184, y: -1.0919964, z: -0.13218002}
+  m_LocalScale: {x: 0.42251557, y: 0.6377326, z: 0.44675726}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5771956423996100919
 MeshFilter:
@@ -1328,7 +1334,7 @@ GameObject:
   - component: {fileID: 8003793171667000126}
   - component: {fileID: 3354777307440743071}
   m_Layer: 0
-  m_Name: Sphere (5)
+  m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1451,11 +1457,11 @@ Transform:
   m_GameObject: {fileID: 5130893430478595283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.433, y: 1.129, z: 0.175}
-  m_LocalScale: {x: 0.34062, y: 0.36542, z: 0.23862}
+  m_LocalPosition: {x: -0.47927096, y: 0.6063563, z: -0.02912442}
+  m_LocalScale: {x: 0.36521092, y: 0.50703603, z: 0.26729488}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6642029644625966319
 MeshFilter:
@@ -1544,7 +1550,7 @@ GameObject:
   - component: {fileID: 7391953374070429294}
   - component: {fileID: 2181924093481920242}
   m_Layer: 0
-  m_Name: Sphere (7)
+  m_Name: l_bread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1652,7 +1658,7 @@ GameObject:
   - component: {fileID: 2839209293339190167}
   - component: {fileID: 2784177865887557006}
   m_Layer: 0
-  m_Name: R
+  m_Name: l_eyebrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,11 +1781,11 @@ Transform:
   m_GameObject: {fileID: 7736153911448754335}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.451, y: 1.129, z: 0.175}
-  m_LocalScale: {x: 0.34062, y: 0.36542, z: 0.23862}
+  m_LocalPosition: {x: 0.46854904, y: 0.6063563, z: -0.02912442}
+  m_LocalScale: {x: 0.36521092, y: 0.50703603, z: 0.26729488}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1914312944852136949}
+  m_Father: {fileID: 3652609018907513023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8590170219727107604
 MeshFilter:
@@ -1864,6 +1870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914312944852136949}
+  - component: {fileID: 2425475846956337495}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Untagged
@@ -1880,17 +1887,24 @@ Transform:
   m_GameObject: {fileID: 7947437961999735237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.029, y: -1.515, z: -0.551}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3518535744378985514}
   - {fileID: 3652609018907513023}
-  - {fileID: 3198939559817392883}
-  - {fileID: 2203461494252544064}
-  - {fileID: 2669194141510143649}
-  - {fileID: 2843690401327753439}
-  - {fileID: 7279964638808169895}
-  - {fileID: 8943786316395010769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2425475846956337495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947437961999735237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6d4d5abd8087d478d0934db95e7a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1

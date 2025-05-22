@@ -2,14 +2,32 @@ using UnityEngine;
 
 public class StudyComponent : MonoBehaviour
 {
-    
-    public GameObject obj; //큐브오브젝트
+    public GameObject obj;
 
-    public string changeName; //큐브의 이름을 바꿉니다.
+    public Mesh msh;
+    public Material mat;
+
     void Start()
     {
-        obj = GameObject.Find("Main Camera");
+        obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        obj.name = changeName; //큐브의 이름을 바꿉니다.
+
+
+        CreateCube();
+        CreateCube("Hello World");
     }
+
+    public void CreateCube(string name = "Cube")
+    {
+        obj = new GameObject(name);
+
+        obj.AddComponent<MeshFilter>();
+        obj.GetComponent<MeshFilter>().mesh = msh;
+
+        obj.AddComponent<MeshRenderer>();
+        obj.GetComponent<MeshRenderer>().material = mat;
+
+        obj.AddComponent<BoxCollider>();
+    }
+
 }
