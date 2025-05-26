@@ -13,7 +13,6 @@ public class Movement : MonoBehaviour
         Vector3 dir = new Vector3(h, 0, v);
 
         Vector3 normalDir = dir.normalized;
-        Debug.Log($"현재 입력 : {normalDir}");
 
         if (normalDir != Vector3.zero) // 입력이 있을 때만 이동
         {
