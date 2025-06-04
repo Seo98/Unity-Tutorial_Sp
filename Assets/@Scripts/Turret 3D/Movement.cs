@@ -4,6 +4,8 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
+    public static int coinCount = 0;
+
     void Update()
     {
         float h = Input.GetAxis("Horizontal");

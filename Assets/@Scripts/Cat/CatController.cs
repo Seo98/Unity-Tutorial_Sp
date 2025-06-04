@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using Cat;
 
 public class CatController : MonoBehaviour
 {
-    private Rigidbody2D catRd;
-    public float Jumppower = 10;
+    public SoundManager soundManager; // SoundManager 인스턴스 추가
 
+    private Rigidbody2D catRd;
+    private Animator catAnim;
+
+    public float Jumppower = 10;
     public bool isGround = false;
 
     public int jumpCount = 0;
@@ -13,6 +17,7 @@ public class CatController : MonoBehaviour
     void Start()
     {
         catRd = GetComponent<Rigidbody2D>();
+        catAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,8 +25,12 @@ public class CatController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 2)
         {
+            catAnim.SetTrigger("Jump");
+            catAnim.SetBool("IsGround", false);
             catRd.AddForceY(Jumppower, ForceMode2D.Impulse);
             jumpCount++;
+
+            soundManager.OnJumpSound(); // 점프 사운드 재생
         }
     }
 
@@ -29,10 +38,9 @@ public class CatController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            catAnim.SetBool("IsGround", true);
             jumpCount = 0;
             isGround = true;
-
-
         }
     }
     private void OnCollisionExit2D(Collision2D other)
