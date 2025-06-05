@@ -9,7 +9,8 @@ public class CatController : MonoBehaviour
     private Rigidbody2D catRd;
     private Animator catAnim;
 
-    public float Jumppower = 10;
+    public float Jumppower = 15;
+    public float limitPower = 14f;
     public bool isGround = false;
 
     public int jumpCount = 0;
@@ -23,12 +24,16 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 2)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 4)
         {
             catAnim.SetTrigger("Jump");
             catAnim.SetBool("IsGround", false);
             catRd.AddForceY(Jumppower, ForceMode2D.Impulse);
             jumpCount++;
+
+            if (catRd.linearVelocityY > limitPower) // 자연스러운 점프를 위한 속도 제한
+                catRd.linearVelocityY = limitPower;
+
 
             soundManager.OnJumpSound(); // 점프 사운드 재생
         }
