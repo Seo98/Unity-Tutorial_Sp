@@ -6,12 +6,17 @@ public class CatController : MonoBehaviour
 {
     public SoundManager soundManager; // SoundManager 인스턴스 추가
 
+    public GameObject gameOverUI; // 게임 오버 UI 오브젝트
+    public GameObject fadeUI;
+
+    public GameObject happyVideo;
+    public GameObject sadVideo;
+
     private Rigidbody2D catRd;
     private Animator catAnim;
 
     public float Jumppower = 15;
     public float limitPower = 14f;
-    public bool isGround = false;
 
     public int jumpCount = 0;
 
@@ -37,22 +42,65 @@ public class CatController : MonoBehaviour
 
             soundManager.OnJumpSound(); // 점프 사운드 재생
         }
-    }
+
+        var catRotation = transform.eulerAngles;
+        catRotation.z = catRd.linearVelocityY * 5f;
+        transform.eulerAngles = catRotation;
+    }   
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Pipe")) // 파이프와 충돌했을 때 // 게임 오버 처리
+        {
+            soundManager.OnColliderSound();
+            this.GetComponent<CircleCollider2D>().enabled = false; // 충돌 감지 비활성화
+            gameOverUI.SetActive(true); // 게임 오버 UI 활성화
+            fadeUI.SetActive(true); // 페이드 UI 활성화
+            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black); // 페이드 효과 시작
+            Invoke("SadVideo", 5f);
+        }
+
         if (other.gameObject.CompareTag("Ground"))
         {
             catAnim.SetBool("IsGround", true);
             jumpCount = 0;
-            isGround = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Apple"))
         {
-            isGround = false;
+            other.gameObject.SetActive(false);
+            other.transform.parent.GetComponent<ItemEvent>().partcle.SetActive(true);
+            GameManager.score++; // 점수 증가
+
+            if(GameManager.score == 10) // 점수가 10점이 되면 UI 활성화
+            {
+                this.GetComponent<CircleCollider2D>().enabled = false; // 충돌 감지 비활성화
+                fadeUI.SetActive(true); // 페이드 UI 활성화
+                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white); // 페이드 효과 시작
+
+                Invoke("HappyVideo", 5f);
+            }
         }
+    }
+
+    private void HappyVideo()
+    {
+        happyVideo.SetActive(true);
+        fadeUI.SetActive(false);
+        gameOverUI.SetActive(false);
+
+        soundManager.audioSource.mute = true; // 사운드 음소거
+    }
+
+    private void SadVideo()
+    {
+        happyVideo.SetActive(true);
+        fadeUI.SetActive(false);
+        gameOverUI.SetActive(false);
+
+        soundManager.audioSource.mute = true; // 사운드 음소거
     }
 }
