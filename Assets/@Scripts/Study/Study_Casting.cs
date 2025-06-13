@@ -34,5 +34,8 @@ public class Study_Casting : MonoBehaviour
         Debug.Log("str1 : " + Convert.ToBoolean(str1));
         Debug.Log("str2 : " + Convert.ToBoolean(str2));
         Debug.Log("str3 : " + Convert.ToBoolean(str3));
+
+
+        Monster m = new Monster();
     }
 }
