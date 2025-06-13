@@ -11,7 +11,7 @@ namespace Cat
         public TextMeshProUGUI playTimeUI;
         public TextMeshProUGUI scoreUI;
 
-        private float timer;
+        private static float timer;
         public static int score = 0; // 점수 변수
         public static bool isPlay;
 
@@ -27,6 +27,12 @@ namespace Cat
         void Start()
         {
             soundManager.SetBGMSound("Intro"); // 게임 시작 시 배경음악 설정
+        }
+
+        public static void ResetPlayUI()
+        {
+            timer = 0;
+            score = 0;
         }
 
 

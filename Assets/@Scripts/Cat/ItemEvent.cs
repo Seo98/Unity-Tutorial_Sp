@@ -14,11 +14,19 @@ public class ItemEvent : MonoBehaviour
     public float returnPosX = 15f;
     public float randomPosY;
 
+    private Vector3 initPos;
 
-    void Start()
+    private void Awake()
     {
-        SetRandomSetting(transform.position.x);
+        initPos = transform.position;
     }
+
+    void OnEnable()
+    {
+        SetRandomSetting(initPos.x);
+    }
+
+
     void Update()
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;

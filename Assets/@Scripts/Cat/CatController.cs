@@ -19,14 +19,28 @@ public class CatController : MonoBehaviour
 
     public int jumpCount = 0;
 
-    void Start()
+    void Awake() // 1번
     {
         catRd = GetComponent<Rigidbody2D>();
         catAnim = GetComponent<Animator>();
     }
 
+    private void OnEnable() // 켜질때마다 실행
+    {
+        transform.localPosition = new Vector3(-7.5f,-1,0);
+        GetComponent<CircleCollider2D>().enabled = true;
+        soundManager.audioSource.Play();
+        soundManager.audioSource.mute = false;
+        
+    }
+
     // Update is called once per frame
     void Update()
+    {
+        Jump();
+    }
+
+    private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 4)
         {
@@ -45,7 +59,7 @@ public class CatController : MonoBehaviour
         var catRotation = transform.eulerAngles;
         catRotation.z = catRd.linearVelocityY * 5f;
         transform.eulerAngles = catRotation;
-    }   
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -56,7 +70,7 @@ public class CatController : MonoBehaviour
             gameOverUI.SetActive(true);
 
             fadeUI.SetActive(true); // 먼저 활성화
-            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black); // 그 다음 페이드 시작
+            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black, true); // 그 다음 페이드 시작
 
             StartCoroutine(EndingRoutain(false));
         }
@@ -80,7 +94,7 @@ public class CatController : MonoBehaviour
             {
                 this.GetComponent<CircleCollider2D>().enabled = false; // 충돌 감지 비활성화
                 fadeUI.SetActive(true); // 페이드 UI 활성화
-                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white); // 페이드 효과 시작
+                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true); // 페이드 효과 시작
 
                 StartCoroutine(EndingRoutain(true));
             }
@@ -92,11 +106,17 @@ public class CatController : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         videoManager.VideoPlay(ishappy);
 
-        //yield return new WaitUntil(() => videoManager.vPlayer.isPlaying);
-
-        fadeUI.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        var NewColor = ishappy ? Color.white : Color.black;
+        fadeUI.GetComponent<FadeRoutine>().OnFade(3f, NewColor, false);
         gameOverUI.SetActive(false);
+        // FADE 해제중
 
-        soundManager.audioSource.mute = true; // 사운드 음소거
+        //yield return new WaitUntil(() => videoManager.vPlayer.isPlaying);
+        yield return new WaitForSeconds(3f);
+        fadeUI.SetActive(false);
+
+        transform.parent.gameObject.SetActive(false); // play 옵젝 false
+        soundManager.audioSource.Stop(); // 사운드 음소거
     }
 }
