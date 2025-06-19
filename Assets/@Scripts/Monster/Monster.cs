@@ -56,7 +56,7 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
-    IEnumerator Hit(float damage)
+    public IEnumerator Hit(float damage)
     {
         if (isHit) // 이미 Hit 상태인 경우 중복 실행 방지
             yield break;

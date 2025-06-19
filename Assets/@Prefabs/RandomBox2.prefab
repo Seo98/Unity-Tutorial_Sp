@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8874923690012600063}
   - component: {fileID: 1828035551133373558}
   - component: {fileID: 6131133226597182700}
+  - component: {fileID: 8516450280078554194}
   m_Layer: 7
   m_Name: RandomBox2
   m_TagString: Untagged
@@ -152,3 +153,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.25}
   m_Radius: 0.25
+--- !u!114 &8516450280078554194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862456092979495368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ece45175a00dd94bb76f8ac58ced50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxType: 1
