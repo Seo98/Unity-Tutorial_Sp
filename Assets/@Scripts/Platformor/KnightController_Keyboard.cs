@@ -9,12 +9,16 @@ public class KnightController_Keyboard : MonoBehaviour
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpPower = 13f;
+
     private bool isGrounded = false;
     private bool isAttack = false; // 공격 중인지 여부를 나타내는 변수    
     private bool isCombo = false; // 콤보 공격 여부를 나타내는 변수
+    private bool isLadder = false; // 사다리 타는 여부를 나타내는 변수
 
 
     private float atkDamage = 3f;
+
+
 
     void Start()
     {
@@ -58,6 +62,13 @@ public class KnightController_Keyboard : MonoBehaviour
             // 멈출 때 X속도 강제로 0으로
             knightRb.linearVelocity = new Vector2(0, knightRb.linearVelocity.y);
         }
+
+        // 사다리 타는 경우 Y축 속도 조정
+        if (isLadder && inputDir.y != 0)
+        {
+            knightRb.linearVelocityY = inputDir.y * moveSpeed; // 사다리 타는 속도
+        }
+
     }
 
     void Jump()
@@ -87,6 +98,32 @@ public class KnightController_Keyboard : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            Debug.Log($"{atkDamage}로 공격");
+        }
+
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = true;
+            knightRb.gravityScale = 0; // 사다리 타는 동안 중력 비활성화
+            knightRb.linearVelocity = Vector2.zero; // 사다리 타는 동안 속도 초기화
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            knightRb.gravityScale = 1; // 사다리에서 벗어나면 중력 활성화
+            knightRb.linearVelocity = Vector2.zero; // 사다리에서 벗어나면 속도 초기화
+        }
+    }
+
 
     void Attack()
     {
@@ -127,12 +164,6 @@ public class KnightController_Keyboard : MonoBehaviour
         animator.SetBool("isCombo", false);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Monster"))
-        {
-            Debug.Log($"{atkDamage}로 공격");
-        }
-    }
+
 
 }

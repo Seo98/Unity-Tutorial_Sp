@@ -40,8 +40,6 @@ public class PotalController : MonoBehaviour
 
         SceneManager.LoadScene(1); // 다음 씬으로 변경 (씬 이름은 예시로 사용)
 
-        // 페이드 오프
-
 
     }
 }

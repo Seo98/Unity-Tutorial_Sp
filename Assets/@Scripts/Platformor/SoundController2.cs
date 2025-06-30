@@ -27,6 +27,7 @@ public class SoundController2 : MonoBehaviour
     {
         BgmSoundPlay("02 Welcome to Town");
 
+        // 이벤트 리스너 등록
         bgmVolume.onValueChanged.AddListener(OnvolumeChangeBGM);
         eventVolume.onValueChanged.AddListener(OnEventVolumeChange);
         bgmToggle.onValueChanged.AddListener(ToggleBGM);
