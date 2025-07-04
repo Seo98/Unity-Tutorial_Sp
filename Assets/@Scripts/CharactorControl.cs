@@ -48,4 +48,7 @@ public class CharactorControl : MonoBehaviour
             currentItem.Grab(grabpos);
         }
     }
+
+
+    //
 }

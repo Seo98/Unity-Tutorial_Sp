@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement; // 씬 관리 네임스페이스 추가
 
 public class PotalController : MonoBehaviour
 {
+    public enum SceneType { TOWN, ADVENTURE }
+    public SceneType sceneType = SceneType.TOWN;
+
     public GameObject potalEffect;
     public FadeRoutine2 fade;
     public GameObject loadingImage;
